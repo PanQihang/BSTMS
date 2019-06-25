@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<!--引入通用JS、css资源-->
+<div th:replace="common/staticImport :: common_resource"></div>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="p-xs">
+            <div class="pull-left m-r-md">
+                <i class="fa fa-globe text-navy mid-icon"></i>
+            </div>
+            <h2>欢迎使用货币兑换功能</h2>
+            <span>最低兑换100最高兑换10000</span>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">兑换金额：</label>
+                <div class="col-sm-3">
+                    <input id="money" name="money" type="text" class="form-control" required="" aria-required="true">
+                </div>
+            </div>
+            <div class="form-group draggable ui-draggable dropped">
+                <label class="col-sm-3 control-label">货币种类：</label>
+                <div class="col-sm-3">
+                    <select id="huobi" class="form-control">
+                        <option value="美元">美元</option>
+                        <option value="欧元">欧元</option>
+                        <option value="日元">日元</option>
+                        <option value="英镑">英镑</option>
+                        <option value="里拉">里拉</option>
+                        <option value="马克">马克</option>
+                        <option value="法郎">法郎</option>
+                        <option value="港币">港币</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <a id = "submit"  onclick="exchange()">兑换</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/OJ/er/exchange.js}"></script>
+</body>
+
+</html>

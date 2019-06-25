@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<!--引入通用JS、css资源-->
+<div th:replace="common/staticImport :: common_resource"></div>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="p-xs">
+            <div class="pull-left m-r-md">
+                <i class="fa fa-globe text-navy mid-icon"></i>
+            </div>
+            <h2>欢迎使用取款功能</h2>
+            <span>仅支持取款50的倍数的金额</span>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">取款金额：</label>
+                <div class="col-sm-3">
+                    <input id="money" name="money" type="text" class="form-control" required="" aria-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <a id = "submit"  onclick="withdrawal()">取款</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/OJ/dw/withdrawal.js}"></script>
+</body>
+
+</html>
