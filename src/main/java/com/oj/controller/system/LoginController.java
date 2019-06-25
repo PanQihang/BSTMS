@@ -48,18 +48,41 @@ public class LoginController {
         //通过用户登录名和密码查询数据库看是否有该用户
         if (userList.size()==1){
             //若有该用户，向session中注入当前用户的信息和功能权限
-            String user_role = userList.get(0).get("role");
             request.getSession().setAttribute("user_id",userList.get(0).get("id"));
-            request.getSession().setAttribute("user_name",userList.get(0).get("name"));
-            request.getSession().setAttribute("user_account",userList.get(0).get("account"));
-            request.getSession().setAttribute("user_role", user_role);
-            request.getSession().setAttribute("user_auth", authService.getAuthListByRole(user_role));
+            String name = loginService.selectName(userList.get(0).get("Identify"));
+            System.out.println(name);
+            request.getSession().setAttribute("user_name",name);
+            request.getSession().setAttribute("user_account",userList.get(0).get("CardID"));
+            //32超管 30普通
+            if(name.equals("admin"))
+            {
+                request.getSession().setAttribute("user_auth", authService.getAuthListByRole("32"));
+            }
+            else
+            {
+                request.getSession().setAttribute("user_auth", authService.getAuthListByRole("30"));
+            }
             log.info("IP为："+LogUtil.getIpAddr(request) +",用户登录名为："+userList.get(0).get("account")+"的用户登入成功");
             return true;
         }else{
             return false;
         }
     }
+
+    //用户开户
+    @PostMapping("/login/Register")
+    @ResponseBody
+    public String Register(HttpServletRequest request)
+    {
+        String userName = request.getParameter("userName");
+        String userID = request.getParameter("userID");
+        String userPhone = request.getParameter("userPhone");
+        String Address = request.getParameter("Address");
+        String Type = request.getParameter("Type");
+        String Password = request.getParameter("Password");
+        return loginService.register(userName,userID,userPhone,Address,Type,Password);
+    }
+
 
     //用户注销功能
     @RequestMapping("/login/Logout")
@@ -86,7 +109,7 @@ public class LoginController {
     @ResponseBody
     public boolean resetPassword(HttpServletRequest request){
         String newPassword = request.getParameter("newPassword");
-        String id = StringUtils.isEmpty(request.getParameter("id"))?request.getSession().getAttribute("user_id").toString():request.getParameter("id");
+        String id = request.getSession().getAttribute("user_account").toString();
         try {
             //通过请求中的新密码并结合session中的用户ID对用户密码进行更新
             loginService.resetPassword(id, newPassword);

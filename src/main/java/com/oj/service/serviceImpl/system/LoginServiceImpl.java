@@ -36,7 +36,31 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public void resetPassword(String user_id, String newPassword) {
         //对新密码进行MD5加密
-        newPassword = OJPWD.OJPWDTOMD5(newPassword);
+        //newPassword = OJPWD.OJPWDTOMD5(newPassword);
         mapper.resetPassword(newPassword, user_id);
+    }
+
+    @Override
+    public String register(String userName, String userID, String userPhone, String Address, String Type, String Password) {
+        //查询身份证是否开过卡
+        String id = mapper.checkID(userID);
+        if(id==null)
+        {
+            //如果该身份证没开过卡则新增用户
+            mapper.addUser(userName,userID,userPhone,Address);
+            String MaxID = mapper.getID();
+            long cardid = Long.parseLong(MaxID)+1;
+            String CardID = String.valueOf(cardid);
+            mapper.addAccount(CardID, userID, Password,Type);
+            return CardID;
+        }
+        else {
+            return null;
+        }
+    }
+
+    @Override
+    public String selectName(String id) {
+        return mapper.selectName(id);
     }
 }

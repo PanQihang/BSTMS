@@ -14,4 +14,10 @@ public interface LoginService {
 
     //通过用户ID更新密码
     public void resetPassword(String user_id, String newPassword);
+
+    //开户
+    public String register(String userName, String userID, String userPhone, String Address, String Type, String Password);
+
+    //查询姓名
+    public String selectName(String id);
 }

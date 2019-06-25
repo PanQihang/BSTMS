@@ -15,9 +15,9 @@
         <div>
             <div>
 
-                <h5 class="logo-name">OJ</h5>
+                <h5 class="logo-name" style="font-size: 90px">BSTMS</h5>
             </div>
-            <h3>数据结构平台-后台管理</h3>
+            <h3>银行自助终端系统</h3>
                 <div class="form-group">
                     <input type="text" name="username" id="username" class="form-control" >
                 </div>
@@ -25,6 +25,101 @@
                     <input type="password" name="passwords" id="passwords" class="form-control">
                 </div>
                 <button onclick="userLogin()" class="btn btn-primary block full-width m-b">登 录</button>
+            <a class="close-link" data-toggle='modal' data-target='#myModal5' onclick="register()"><h3>开户</h3></a>
+        </div>
+    </div>
+
+    <!--弹窗-->
+    <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="dialogTitle">开户</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="get" id="dialogUserInfo" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">姓名：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogUsername" name="dialogUsername" type="text"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入姓名">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">身份证号：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogUserID" name="dialogUserID" type="text"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入身份证号">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">手机号：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogUserphone" name="dialogUserphone" type="text"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入手机号">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">住址：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogAddress" name="dialogAddress" type="text"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入住址">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable"  style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">开户类型：</label>
+                                    <div class="col-sm-5">
+                                        <select id="dialogType" name="dialogType" class="form-control"  aria-required="true" aria-invalid="false">
+                                            <option value="借记卡" selected>借记卡</option>
+                                            <option value="信用卡">信用卡</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">密码：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogPassword" name="dialogPassword" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable" style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">再次输入密码：</label>
+                                    <div class="col-sm-5">
+                                        <input id="dialogPassword2" name="dialogPassword2" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" id="closeUserInfoDialog" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="saveInfo()">开户</button>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" th:src="@{/js/login.js}"></script>

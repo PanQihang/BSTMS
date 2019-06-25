@@ -29,51 +29,6 @@ public class HomepageController {
     @RequestMapping("/")
     public String index(HttpServletRequest request)
     {
-        String role = (String) request.getSession().getAttribute("user_role");
-        if(role.equalsIgnoreCase("30")||role.equalsIgnoreCase("32"))
-        {
-            return "system/adminhomepage";
-        }
-        else if(role.equalsIgnoreCase("31"))
-        {
-            return "system/teacherhomepage";
-        }
-        else
-        {
-            return "error/404";
-        }
-    }
-
-    @RequestMapping("/check")
-    @ResponseBody
-    public String check(HttpServletRequest request)
-    {
-        String role = (String) request.getSession().getAttribute("user_role");
-        if(role.equalsIgnoreCase("30")||role.equalsIgnoreCase("32"))
-        {
-            return "0";
-        }
-        else if(role.equalsIgnoreCase("31"))
-        {
-            return "1";
-        }
-        else
-        {
-            return "1";
-        }
-    }
-    @RequestMapping("/getPending")
-    @ResponseBody
-    public List<Map> getPendingList(HttpServletRequest request)
-    {
-        String id =  request.getSession().getAttribute("user_id").toString();
-        return homepageService.getPending(id);
-    }
-
-    @RequestMapping("/getSubmit")
-    @ResponseBody
-    public List<Map> getSubmit(HttpServletRequest request)
-    {
-        return homepageService.getSubmit();
+        return "system/adminhomepage";
     }
 }
