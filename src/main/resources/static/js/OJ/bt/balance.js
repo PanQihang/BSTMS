@@ -21,7 +21,7 @@ function balance() {
                 swal("您的余额为","0.00", "success");
             }
             else{
-                swal("您的余额为",result, "success");
+                swal("您的余额为",result.toString(), "success");
             }
         }
     })

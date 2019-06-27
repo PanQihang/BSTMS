@@ -21,7 +21,6 @@ public class BalanceServiceImpl implements BalanceService {
         String x;
         x = res.substring(res.length()-2,res.length());
         res = r+"."+x;
-        System.out.println(res);
         return res;
     }
 }
