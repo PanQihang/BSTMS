@@ -2,11 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>余额查询</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <!--引入通用JS、css资源-->
 <div th:replace="common/staticImport :: common_resource"></div>
 <body class="gray-bg">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="ibox-content m-b-sm border-bottom">
         <div class="p-xs">
@@ -17,15 +35,13 @@
             <span>最大取款限额为1000000000</span>
         </div>
     </div>
-    <div class="ibox-content">
-        <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">
-            <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-3">
-                    <a id = "submit"  onclick="balance()">查询余额</a>
-                </div>
-            </div>
-        </form>
+    <div class="p-m">
+        <h3 class="font-bold no-margins">
+            余额:
+        </h3>
+        <h1 class="m-xs" id="money"></h1>
     </div>
+    <button type="button" class="btn btn-primary btn-lg" onclick="JavaScript :history.back(1);">返回首页</button>
 </div>
 <script type="text/javascript" th:src="@{/js/OJ/bt/balance.js}"></script>
 </body>

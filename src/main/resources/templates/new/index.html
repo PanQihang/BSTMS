@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BSTMS</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+        /*#tuichu{*/
+            /*float:right;*/
+        /*}*/
+        /*#xiugai{*/
+            /*float:right;*/
+        /*}*/
+        /*#qukuan{*/
+            /*float:right;*/
+        /*}*/
+        /*#zhuanzhang{*/
+            /*float:right;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div th:replace="common/staticImport :: common_resource"></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table style="margin-left: 350px">
+    <tr>
+        <th>
+            <h1>
+                <input type="button" id="yue" value="余额" style="width:250px;height:60px;border:10px solid #DCDCDC;background:#1ba7ec99"  onclick="balance()" />
+            </h1>
+        </th>
+        <th>
+            <h1>
+                <input type="button" id="zhuanzhang" value="转账" style="margin-left: 500px;width:250px;height:60px;border:10px solid #DCDCDC;background:#1ba7ec99"  onclick="transfer()" />
+            </h1>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h1>
+                <input type="button" value="账单" style="width:250px;height:60px;border:10px solid #DCDCDC;background:#1ba7ec99" onclick="bill()"/>
+            </h1>
+        </th>
+        <th>
+            <h1>
+                <input type="button" id="qukuan" value="取款" style="margin-left: 500px;width:250px;height:60px;border:10px solid #DCDCDC;background:#1ba7ec99" onclick="withdraw()"/>
+            </h1>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h1>
+                <input type="button" id="cunkuan" value="存款" style="width:250px;height:60px;border:10px solid #DCDCDC;background:#1ba7ec99" onclick="deposit()"/>
+            </h1>
+        </th>
+        <th>
+            <h1>
+                <input type="button" id="xiugai" value="修改密码" style="margin-left: 500px;width:250px;
+                height:60px;border:10px solid #DCDCDC;background:#1ba7ec99" data-toggle='modal' data-target='#resetPassword' onclick="formReset()"/>
+            </h1>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h1>
+                <input type="button" id="duihuan" value="货币兑换" style="width:250px;height:60px;border:10px solid #C0C0C0;background:#1ba7ec99" onclick="duihuan()"/>
+            </h1>
+        </th>
+        <th>
+            <h1>
+                <input type="button" id="tuichu" value="退出" style="margin-left: 500px;width:250px;height:60px;border:10px solid #C0C0C0;background:#1ba7ec99" onclick="logout()"/>
+            </h1>
+        </th>
+    </tr>
+</table>
+<div class="modal inmodal fade" id="resetPassword" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="modal-body">
+                <form method="get" id="resetPasswordForm" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-9 droppable sortable ui-droppable ui-sortable"  style="width: 100%">
+                            <div class="form-group draggable ui-draggable dropped">
+                                <label class="col-sm-2 control-label">新密码：</label>
+                                <div class="col-sm-5">
+                                    <input id="newPassword" name="newPassword" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入新密码">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 droppable sortable ui-droppable ui-sortable"  style="width: 100%">
+                            <div class="form-group draggable ui-draggable dropped">
+                                <label class="col-sm-2 control-label">再次输入：</label>
+                                <div class="col-sm-5">
+                                    <input id="verifyPassword" name="verifyPassword" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入再次输入密码">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" id="closeUserInfoDialog" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="saveNewPassword()">保存</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function balance() {
+        window.location.href = "/balanceMn/";
+    }
+    function transfer() {
+        window.location.href = "/transferMn/";
+    }
+    function bill() {
+        window.location.href = "/billMn/";
+    }
+    function withdraw() {
+        window.location.href = "/withdrawMn/";
+    }
+    function deposit() {
+        window.location.href = "/depositMn/";
+    }
+    function duihuan() {
+        window.location.href = "/exchangeMn/";
+    }
+    function logout() {
+        swal({
+                title: "确认退出?",
+                text: "",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确认",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    window.location.href='/login/Logout';
+                }else {
+                    swal("已取消", "", "error");
+                }
+            });
+    }
+
+    //重置弹出框的内容
+    function formReset() {
+        $("#resetPassword input").val("");
+        $("#resetPassword input").removeClass("error");
+        $("#resetPassword label.error").remove()
+    }
+
+    //保存重置的密码
+    function saveNewPassword() {
+        if(validform().form()) {
+            $.ajax({
+                type: "POST",
+                url: "/resetPassword",
+                // contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                data:{
+                    "newPassword" : $("#newPassword").val()
+                },
+                success:function (result){
+                    if(result){
+                        //关闭模态窗口
+                        $('#resetPassword').modal('hide');
+                        swal("修改成功！", "密码已成功修改", "success");
+                    }else{
+                        swal("修改失败！", "密码修改失败", "error");
+                    }
+                },
+                error:function (e) {
+                    console.log(e)
+                }
+            })
+        }
+    }
+
+    //对重置密码弹窗中的数据进行校验
+    function validform() {
+        var icon = "<i class='fa fa-times-circle'></i>";
+        return $("#resetPasswordForm").validate({
+            rules: {
+                newPassword: {
+                    required: true,
+                    minlength: 6
+                },
+                verifyPassword: {
+                    required: true,
+                    equalTo: "#newPassword"
+                }
+            },
+            messages: {
+
+                newPassword: {
+                    required: icon + "请填写新密码",
+                    minlength: icon + "密码最少为6位"
+                },
+                verifyPassword: {
+                    required: icon + "请再次输入新密码",
+                    equalTo: icon + "两次密码输入不一致"
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

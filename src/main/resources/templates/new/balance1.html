@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>密码修改</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<!--引入通用JS、css资源-->
+<div th:replace="common/staticImport :: common_resource"></div>
+<body class="gray-bg">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="p-xs">
+            <div class="pull-left m-r-md">
+                <i class="fa fa-globe text-navy mid-icon"></i>
+            </div>
+            <h2>欢迎使用密码修改功能</h2>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="get" id="resetPasswordForm" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable"  style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">新密码：</label>
+                                    <div class="col-sm-5">
+                                        <input id="newPassword" name="newPassword" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入新密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 droppable sortable ui-droppable ui-sortable"  style="width: 100%">
+                                <div class="form-group draggable ui-draggable dropped">
+                                    <label class="col-sm-2 control-label">再次输入：</label>
+                                    <div class="col-sm-5">
+                                        <input id="verifyPassword" name="verifyPassword" type="password"  aria-required="true" aria-invalid="false" class="form-control" placeholder="请输入再次输入密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" id="closeUserInfoDialog" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="saveNewPassword()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg" onclick="JavaScript :history.back(1);">返回首页</button>
+</div>
+<script type="text/javascript" th:src="@{/js/OJ/dw/deposit.js}"></script>
+</body>
+
+</html>

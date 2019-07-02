@@ -1,5 +1,5 @@
 $(function() {
-    balance();
+    index();
 });
 
 function index() {
@@ -11,6 +11,10 @@ function index() {
 
 function balance() {
     $.ajax({
+        type: "",
+        url: "/balanceMn/index",
+    })
+    $.ajax({
         type: "GET",
         url: "/balanceMn/balance",
         dataType: "json",
@@ -18,10 +22,10 @@ function balance() {
             console.log(result)
             if(result=="0")
             {
-                $("#money").html("0.00");
+                swal("您的余额为","0.00", "success");
             }
             else{
-                $("#money").html(result.toString());
+                swal("您的余额为",result.toString(), "success");
             }
         }
     })

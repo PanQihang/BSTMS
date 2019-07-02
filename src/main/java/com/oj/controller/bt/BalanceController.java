@@ -20,12 +20,21 @@ public class BalanceController {
     @RequestMapping("/")
     //返回login.html页面
     public String index(HttpServletRequest request) {
-        return "bt/balance";
+        return "bt/balance.html";
     }
 
     @RequestMapping("/balance")
     @ResponseBody
     public String balance(HttpServletRequest request)
+    {
+        String id = request.getSession().getAttribute("user_account").toString();
+        String res = service.balance(id);
+        return res;
+    }
+
+    @RequestMapping("/balance1")
+    @ResponseBody
+    public String balance1(HttpServletRequest request)
     {
         String id = request.getSession().getAttribute("user_account").toString();
         String res = service.balance(id);

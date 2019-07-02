@@ -1,11 +1,38 @@
 $(function() {
     index();
+    get();
 });
 
 function index() {
     $.ajax({
         type: "",
         url: "/exchangeMn/index",
+    })
+}
+
+function get() {
+    $.ajax({
+        type: "GET",
+        url: "/exchangeMn/getMap",
+        success:function (result) {
+            var dataTable = $('#ipInfoTable');
+            if ($.fn.dataTable.isDataTable(dataTable)) {
+                dataTable.DataTable().destroy();
+            }
+            dataTable.DataTable({
+                "serverSide": false,
+                "autoWidth" : false,
+                "bSort": false,
+                "data" : result,
+                "columns" : [{
+                    "data" : "CN_name"
+                },{
+                    "data" : "EN_name"
+                },{
+                    "data" : "rate"
+                }]
+            });
+        }
     })
 }
 

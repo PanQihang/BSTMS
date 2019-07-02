@@ -5,6 +5,9 @@ import com.oj.service.er.ExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
     @Autowired(required = false)
@@ -21,5 +24,10 @@ public class ExchangeServiceImpl implements ExchangeService {
         {
             return "0";
         }
+    }
+
+    @Override
+    public List<Map> getMap() {
+        return mapper.get();
     }
 }

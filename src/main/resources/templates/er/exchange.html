@@ -2,7 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>货币兑换</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <!--引入通用JS、css资源-->
 <div th:replace="common/staticImport :: common_resource"></div>
@@ -47,6 +57,29 @@
             </div>
         </form>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>今日汇率</h5>
+                </div>
+                <div class="ibox-content">
+                    <table id = "ipInfoTable" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <tr>
+                            <th width="40%">货币种类</th>
+                            <th width="30%">英文名</th>
+                            <th width="30%">汇率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg" onclick="JavaScript :history.back(1);">返回首页</button>
 </div>
 <script type="text/javascript" th:src="@{/js/OJ/er/exchange.js}"></script>
 </body>

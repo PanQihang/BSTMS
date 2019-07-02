@@ -2,11 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>账单明细</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <!--引入通用JS、css资源-->
 <div th:replace="common/staticImport :: common_resource"></div>
 <body class="gray-bg">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
@@ -30,6 +48,7 @@
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-primary btn-lg" onclick="JavaScript :history.back(1);">返回首页</button>
 </div>
 <!--弹窗布局开始-->
 <script type="text/javascript" th:src="@{/js/OJ/bt/bill.js}"></script>

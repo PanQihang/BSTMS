@@ -2,11 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>转账</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <!--引入通用JS、css资源-->
 <div th:replace="common/staticImport :: common_resource"></div>
 <body class="gray-bg">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="ibox-content m-b-sm border-bottom">
         <div class="p-xs">
@@ -38,6 +55,7 @@
             </div>
         </form>
     </div>
+    <button type="button" class="btn btn-primary btn-lg" onclick="JavaScript :history.back(1);">返回首页</button>
 </div>
 <script type="text/javascript" th:src="@{/js/OJ/bt/transfer.js}"></script>
 </body>

@@ -2,11 +2,60 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>取款</title>
+    <style type="text/css">
+        body {
+            background-image: url(../photo/a7.jpg);
+            color: #D6D6D6;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            text-align: left;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <style type="text/css">
+        #gm_bt_1 {
+            float:left;
+        }
+        #gm_bt_2 {
+            float:left;
+        }
+        #gm_bt_3 {
+            float:left;
+        }
+        #gm_bt_4 {
+            float:left;
+        }
+        #back {
+            float:left;
+        }
+        #gm_bt_5 {
+            float:right;
+        }
+        #gm_bt_6 {
+            float:right;
+        }
+        #gm_bt_7 {
+            float:right;
+        }
+        #other {
+            float:right;
+        }
+        #gm_bt_tx {
+            float:right;
+        }
+    </style>
 </head>
 <!--引入通用JS、css资源-->
 <div th:replace="common/staticImport :: common_resource"></div>
 <body class="gray-bg">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="ibox-content m-b-sm border-bottom">
         <div class="p-xs">
@@ -17,23 +66,149 @@
             <span>仅支持取款50的倍数的金额</span>
         </div>
     </div>
-    <div class="ibox-content">
-        <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">
-            <div class="form-group">
-                <label class="col-sm-3 control-label">取款金额：</label>
-                <div class="col-sm-3">
-                    <input id="money" name="money" type="text" class="form-control" required="" aria-required="true">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-3">
-                    <a id = "submit"  onclick="withdrawal()">取款</a>
-                </div>
-            </div>
-        </form>
+    <div style="margin: 5% 5%;background-repeat: no-repeat; background-repeat: round">
+        <p>&nbsp;</p>
+        <p>
+            <input type="button" name="gm_bt_1" id="gm_bt_1" value="100" style="width:100px;height:50px;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun1()"/>
+            <input type="button" name="gm_bt_5" id="gm_bt_5" value="2000" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun5()"/>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>
+            <input type="button" name="gm_bt_2" id="gm_bt_2" value="200" style="width:100px;height:50px;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun2()"/>
+            <label for="gm_tx" ></label>
+            金额：<input type="text" name="gm_tx" id="gm_tx" style="margin-left:30%;"/>
+            <input type="button" name="gm_bt_6" id="gm_bt_6" value="5000" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun6()"/>
+        </p>
+        <p>&nbsp;</p>
+        <p>
+            <input type="button" name="gm_bt_3" id="gm_bt_3" value="500" style="width:100px;height:50px;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun3()"/>
+            <input type="button" name="gm_bt_7" id="gm_bt_7" value="10000" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun7()"/>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>
+            <input type="button" name="gm_bt_4" id="gm_bt_4" value="1000" style="width:100px;height:50px;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun4()"/>
+            <input type="button" name="other" id="other" value="其他" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="funo()"/>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>
+            <input type="button" name="back" id="back" value="返回个人主页" style="width:100px;height:50px;;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="JavaScript :history.back(1);"/>
+            <input type="button" name="gm_bt_tx" id="gm_bt_tx" value="确认" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0"/>
+        </p>
     </div>
 </div>
-<script type="text/javascript" th:src="@{/js/OJ/dw/withdrawal.js}"></script>
+<!--<script type="text/javascript" th:src="@{/js/OJ/dw/withdrawal.js}"></script>-->
+<script type="text/javascript">
+    $(function(){
+        //按钮添加时间
+        $("#gm_bt_1").click(function(){
+            //getMoney($("#gm_bt_1").val());
+        });
+        $("#gm_bt_2").click(function(){
+            //getMoney($("#gm_bt_2").val());
+        });
+        $("#gm_bt_3").click(function(){
+            //getMoney($("#gm_bt_3").val());
+        });
+        $("#gm_bt_4").click(function(){
+            //getMoney($("#gm_bt_4").val());
+        });
+        $("#gm_bt_5").click(function(){
+            //getMoney($("#gm_bt_5").val());
+        });
+        $("#gm_bt_6").click(function(){
+            //getMoney($("#gm_bt_6").val());
+        });
+        $("#gm_bt_7").click(function(){
+            //getMoney($("#gm_bt_7").val());
+        });
+        $("#gm_bt_tx").click(function(){
+            var reg = /^([1-9]\d*00)$/;
+            if(!reg.test($("#gm_tx").val())){
+                alert("请输入正确的金额，只支持100的倍数");
+            }
+            else{
+                getMoney($("#gm_tx").val());
+            }
+        });
+    })
+    function fun1()
+    {
+        document.getElementById("gm_tx").value = "100";
+    }
+    function fun2()
+    {
+        document.getElementById("gm_tx").value = "200";
+    }
+    function fun3()
+    {
+        document.getElementById("gm_tx").value = "500";
+    }
+    function fun4()
+    {
+        document.getElementById("gm_tx").value = "1000";
+    }
+    function fun5()
+    {
+        document.getElementById("gm_tx").value = "2000";
+    }
+    function fun6()
+    {
+        document.getElementById("gm_tx").value = "5000";
+    }
+    function fun7()
+    {
+        document.getElementById("gm_tx").value = "10000";
+    }
+
+    function funo()
+    {
+        document.getElementById("gm_tx").value = "";
+    }
+
+    //取款操作
+    function getMoney(obj){
+        var m = obj;
+        var money = m.toString();
+        swal({
+                title: "确认取款?",
+                text: "您的存款金额为"+money.toString(),
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确认",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/withdrawMn/withdraw",
+                        dataType: "json",
+                        data: {
+                            "money": money*100
+                        },
+                        success: function (result) {
+                            if(result==true)
+                            {
+                                swal("取款成功", "", "success");
+                            }
+                            else
+                            {
+                                swal("取款失败", "余额不足", "error");
+                            }
+                        }
+                    })
+                }else {
+                    swal("已取消", "", "error");
+                }
+            });
+    }
+</script>
 </body>
 
 </html>

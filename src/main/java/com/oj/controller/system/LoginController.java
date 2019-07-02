@@ -101,7 +101,7 @@ public class LoginController {
     @RequestMapping("/index")
     //返回index.html页面
     public String index(HttpServletRequest request) {
-        return "index";
+        return "new/index";
     }
 
     //重置密码功能
