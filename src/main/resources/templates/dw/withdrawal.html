@@ -63,7 +63,7 @@
                 <i class="fa fa-globe text-navy mid-icon"></i>
             </div>
             <h2>欢迎使用取款功能</h2>
-            <span>仅支持取款50的倍数的金额</span>
+            <span>仅支持取款100的倍数的金额</span>
         </div>
     </div>
     <div style="margin: 5% 5%;background-repeat: no-repeat; background-repeat: round">
@@ -77,7 +77,7 @@
         <p>
             <input type="button" name="gm_bt_2" id="gm_bt_2" value="200" style="width:100px;height:50px;margin-left:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun2()"/>
             <label for="gm_tx" ></label>
-            金额：<input type="text" name="gm_tx" id="gm_tx" style="margin-left:30%;"/>
+        <h3 style="margin-left:30%;">金额：</h3><input type="text" name="gm_tx" id="gm_tx" style="height:50px;margin-left:30%;"/>
             <input type="button" name="gm_bt_6" id="gm_bt_6" value="5000" style="width:100px;height:50px;margin-right:150px;border:1px solid #DCDCDC;background:#C0C0C0" onclick="fun6()"/>
         </p>
         <p>&nbsp;</p>
@@ -174,7 +174,7 @@
         var money = m.toString();
         swal({
                 title: "确认取款?",
-                text: "您的存款金额为"+money.toString(),
+                text: "您的取款金额为"+money.toString(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",

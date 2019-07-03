@@ -21,7 +21,7 @@ function balance() {
                 $("#money").html("0.00");
             }
             else{
-                $("#money").html(result.toString());
+                $("#money").html(result.toString()+".00");
             }
         }
     })

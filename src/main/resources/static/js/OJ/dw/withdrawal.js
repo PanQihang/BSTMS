@@ -14,7 +14,7 @@ function withdrawal() {
     if (validform().form()){
         swal({
                 title: "确认取款?",
-                text: "您的存款金额为"+money,
+                text: "您的取款金额为"+money,
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
